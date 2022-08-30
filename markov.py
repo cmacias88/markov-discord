@@ -87,10 +87,12 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if "hello" in message.content.upper():
+    contents = message.content 
+
+    if "hello" in contents.lower():
         await message.channel.send('What is up, my fellow student? Ask me to tell you a story.')
 
-    if "tell" in message.content:
+    if 'tell' in contents.lower():
         await message.channel.send(random_text)
 
 client.run(os.environ['DISCORD_TOKEN'])
